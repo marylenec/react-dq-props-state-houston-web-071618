@@ -19,10 +19,6 @@ export default class MasterHog extends Component {
     })
   }
 
-  makeBabyHog = () =>(
-    offspring.map( hog =>( <BabyHog eyeColor={this.state.eyeColor} key={hog.id} name={hog.name} hobby={hog.hobby}/>))
-  )
-
 
   render() {
     return (
@@ -43,8 +39,8 @@ export default class MasterHog extends Component {
           <img id="master-blaster" src={Master} alt="" />
         </div>
 
-        <ul className="hoglist">
-          {this.makeBabyHog()}
+        <ul className="hoglist" >
+          {offspring.map( offspringData => <BabyHog {...offspringData} eyeColor={ this.state.eyeColor} key={offspringData.id} />) }
         </ul>
 
       </div>

@@ -12,10 +12,12 @@ export default class BabyHog extends Component {
 
   constructor(props) {
     super(props)
-    this.state={
-      weight:5
+
+    this.state = {
+      weight: 5
     }
   }
+
 
   changeWeight = (e) => {
     // nothing needs to change here
@@ -25,22 +27,22 @@ export default class BabyHog extends Component {
     })
   }
 
-
-  imageChange = () =>{
-    if(this.props.eyeColor === "blue"){
+  imgMapper = () => {
+    if (this.props.eyeColor === 'blue') {
       return BlueBaby
-    }else if(this.props.eyeColor === "sun") {
+    } else if (this.props.eyeColor === 'sun') {
       return SunBaby
-    }else(this.props.eyeColor === "glowing") {
+    } else if (this.props.eyeColor === 'glowing'){
       return GlowingBaby
-    }
+    } else return normalBaby
   }
+
 
   render() {
     return (
       <li className="hogbabies">
         <h1>Name: {this.props.name}</h1>
-        <h3>Weight: {this.state.weight}lbs</h3>
+        <h3>Weight: {this.state.weight}</h3>
         <h3>Hobby: {this.props.hobby}</h3>
         <h4>Eye Color: {this.props.eyeColor}</h4>
 
@@ -52,7 +54,7 @@ export default class BabyHog extends Component {
         </Button>
 
         <div className="hb-wrap">
-          <img src={this.imageChange()} style={{height: '200px'}} alt="MasterBlasterJrJr" />
+          <img src={this.imgMapper()} style={{height: '200px'}} alt="MasterBlasterJrJr" />
         </div>
 
       </li>
